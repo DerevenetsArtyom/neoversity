@@ -17,17 +17,14 @@ def get_upcoming_birthdays(users):
             birthday_this_year = birthday_this_year.replace(year=today.year + 1)
 
         # Get the number of days until the next birthday
-        days_until_birthday = (birthday_this_year - today).days 
+        days_until_birthday = (birthday_this_year - today).days
 
         if 0 <= days_until_birthday <= 7:
             if birthday_this_year.weekday() >= 5:
                 birthday_this_year += timedelta(days=(7 - birthday_this_year.weekday()))
 
             upcoming_birthdays.append(
-                {
-                    "name": user["name"], 
-                    "congratulation_date": birthday_this_year.strftime("%Y.%m.%d")
-                }
+                {"name": user["name"], "congratulation_date": birthday_this_year.strftime("%Y.%m.%d")}
             )
 
     return upcoming_birthdays
