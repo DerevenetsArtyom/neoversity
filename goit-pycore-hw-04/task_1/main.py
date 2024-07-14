@@ -5,9 +5,9 @@ def total_salary(path: str) -> tuple | None:
     number_employees = 0
 
     try:
-        with open(path, 'r', encoding='utf-8') as file:
+        with open(path, "r", encoding="utf-8") as file:
             for line in file:
-                _, salary = line.strip().split(',')
+                _, salary = line.strip().split(",")
                 total_salary += int(salary)
                 number_employees += 1
     except FileNotFoundError:

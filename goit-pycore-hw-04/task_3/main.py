@@ -15,7 +15,7 @@ def display_directory_structure(directory_path: str, indent: int = 0) -> None:
         print(Fore.RED + f"The path '{directory_path}' doesn't exist or is not a directory.")
         return
 
-    # Show a special icon for the selected folder 
+    # Show a special icon for the selected folder
     if indent == 0:
         print(" " * indent + Fore.BLUE + f"📦 " + path.absolute().name)
 
