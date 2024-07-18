@@ -12,7 +12,7 @@ def generator_numbers(text: str):
 
 def sum_profit(text: str, func: Callable) -> float:
     """The function to calculate the total profit based on the input text."""
-    return sum(func(text))  
+    return sum(func(text))
 
 
 # Example usage
