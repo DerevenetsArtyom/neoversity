@@ -16,11 +16,7 @@ class AddressBook(UserDict):
 
     def find(self, name: str) -> Record:
         """Find the record by name."""
-        record = self.data.get(name)
-        if not record:
-            raise KeyError(f"The record with name '{name}' is not found.")
-
-        return record
+        return self.data.get(name)
 
     def delete(self, name: str) -> None:
         """Delete the record by name."""
@@ -36,7 +32,7 @@ class AddressBook(UserDict):
         for user in self.data.values():
             if user.birthday:
                 # Convert the birthday string to a datetime.date object
-                birthday_date = datetime.strptime(user.birthday.value, "%Y.%m.%d").date()
+                birthday_date = datetime.strptime(user.birthday.value, "%d.%m.%Y").date()
                 # Set the year to the current year to be able to compare with the current date
                 birthday_this_year = birthday_date.replace(year=today.year)
 
@@ -51,6 +47,6 @@ class AddressBook(UserDict):
                     if birthday_this_year.weekday() >= 5:
                         birthday_this_year += timedelta(days=(7 - birthday_this_year.weekday()))
 
-                    upcoming_birthdays.append(user)
+                    upcoming_birthdays.append(f"{user.name.value}: {birthday_this_year.strftime('%d.%m.%Y')}")
 
-        return upcoming_birthdays
+        return "\n".join(upcoming_birthdays)

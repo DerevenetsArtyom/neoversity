@@ -12,7 +12,7 @@ class Record:
         self.birthday = None
 
     def __str__(self) -> str:
-        return f"Contact name: {self.name.value}, phones: {'; '.join(p.value for p in self.phones)}, birthday: {self.birthday}"
+        return f"Contact name: {self.name.value} || phones: {'; '.join(p.value for p in self.phones)} || birthday: {self.birthday}"
 
     def add_birthday(self, birthday):
         self.birthday = Birthday(birthday)
