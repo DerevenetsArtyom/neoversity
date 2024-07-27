@@ -1,3 +1,4 @@
+import pickle
 from fields.address_book import AddressBook
 from fields.record import Record
 
@@ -88,17 +89,36 @@ def birthdays(args, book: AddressBook):
     return book.get_upcoming_birthdays()
 
 
+def save_data(book: AddressBook, filename: str = "addressbook.pkl") -> None:
+    """Save data to a file using pickle serialization."""
+
+    with open(filename, "wb") as file:
+        pickle.dump(book, file)
+
+
+def load_data(filename: str = "addressbook.pkl") -> AddressBook:
+    """Load data from a file using pickle deserialization."""
+
+    try:
+        with open(filename, "rb") as file:
+            return pickle.load(file)
+    except FileNotFoundError:
+        return AddressBook()
+
+
 def main() -> None:
     """Main function to handle user input and commands."""
 
     print("Welcome to the assistant bot!")
-    contacts = AddressBook()
+    address_book_file = "addressbook.pkl"
+    contacts = load_data(address_book_file)
 
     while True:
         user_input = input("Enter a command: ")
         command, *args = parse_input(user_input)
 
         if command in {"close", "exit"}:
+            save_data(contacts, address_book_file)
             print("Good bye!")
             break
         elif command == "hello":
