@@ -3,7 +3,7 @@ from collections import deque
 
 def is_palindrome(string) -> bool:
     # Remove spaces and convert to lowercase
-    string = string.replace(' ', '').lower()
+    string = string.replace(" ", "").lower()
 
     # Create a deque (double-ended queue)
     char_deque = deque(string)
@@ -23,4 +23,3 @@ print("racecar --> ", is_palindrome("racecar"))
 print("noon --> ", is_palindrome("noon"))
 print("Was it a car or a cat I saw --> ", is_palindrome("Was it a car or a cat I saw"))
 print("Never odd or even --> ", is_palindrome("Never odd or even"))
-
