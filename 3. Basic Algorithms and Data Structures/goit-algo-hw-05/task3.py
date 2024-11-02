@@ -81,12 +81,8 @@ def rabin_karp_search(main_string, substring):
             if main_string[i : i + substring_length] == substring:
                 return i
         if i < main_string_length - substring_length:
-            current_slice_hash = (
-                current_slice_hash - ord(main_string[i]) * h_multiplier
-            ) % modulus
-            current_slice_hash = (
-                current_slice_hash * base + ord(main_string[i + substring_length])
-            ) % modulus
+            current_slice_hash = (current_slice_hash - ord(main_string[i]) * h_multiplier) % modulus
+            current_slice_hash = (current_slice_hash * base + ord(main_string[i + substring_length])) % modulus
             if current_slice_hash < 0:
                 current_slice_hash += modulus
     return -1
@@ -103,6 +99,7 @@ with open("articles/article2.txt", "r", encoding="utf-8") as file:
 
 def measure_time(func, text, pattern):
     return timeit.timeit(lambda: func(text, pattern), number=1000)
+
 
 time_bm_1_existing = measure_time(boyer_moore_search, text_1, pattern_existing)
 time_bm_1_non_existing = measure_time(boyer_moore_search, text_1, pattern_non_existing)

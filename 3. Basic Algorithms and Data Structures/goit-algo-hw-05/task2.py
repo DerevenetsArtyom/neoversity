@@ -33,7 +33,7 @@ def binary_search_with_upper_bound(arr, x):
 # Testing the function
 arr = [1.1, 1.3, 2.5, 3.8, 4.6]
 print(binary_search_with_upper_bound(arr, 3.5))  # (2, 3.8)
-print(binary_search_with_upper_bound(arr, 4))    # (3, 4.6)
+print(binary_search_with_upper_bound(arr, 4))  # (3, 4.6)
 print(binary_search_with_upper_bound(arr, 6.0))  # (3, None)
 print(binary_search_with_upper_bound(arr, 2.5))  # (1, 2.5)
-print(binary_search_with_upper_bound(arr, 0))    # (2, 1.1)
+print(binary_search_with_upper_bound(arr, 0))  # (2, 1.1)
