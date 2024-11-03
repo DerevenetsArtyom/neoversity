@@ -17,9 +17,7 @@ def monte_carlo_simulation(num_simulations: int) -> dict:
         sum_counts[total] += 1  # Збільшення лічильника для відповідної суми
 
     # Обчислення ймовірностей у відсотках
-    probabilities = {
-        s: (count / num_simulations) * 100 for s, count in sum_counts.items()
-    }
+    probabilities = {s: (count / num_simulations) * 100 for s, count in sum_counts.items()}
     return probabilities
 
 
@@ -51,9 +49,7 @@ def display_results(monte_carlo_probs: dict, analytical_probs: dict) -> pd.DataF
         # Перетворення в дробовий вигляд
         fraction = Fraction(analytical_probs[s][0], analytical_probs[s][1])
 
-        table_data.append(
-            [s, f"{monte_carlo_prob:.2f}%", f"{analytical_prob:.2f}% ({fraction})"]
-        )
+        table_data.append([s, f"{monte_carlo_prob:.2f}%", f"{analytical_prob:.2f}% ({fraction})"])
 
     # Створення DataFrame для зручності виведення
     df = pd.DataFrame(
@@ -71,9 +67,7 @@ def plot_probabilities(df: pd.DataFrame):
     # Перетворення значень на float
     df_plot["Монте-Карло"] = df_plot["Монте-Карло"].str.rstrip("%").astype(float)
     # Витягування числових значень
-    df_plot["Аналітично"] = (
-        df_plot["Аналітично"].str.extract(r"(\d+\.\d+)%").astype(float)
-    )
+    df_plot["Аналітично"] = df_plot["Аналітично"].str.extract(r"(\d+\.\d+)%").astype(float)
 
     # Побудова графіка
     df_plot.plot(
