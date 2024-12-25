@@ -4,11 +4,11 @@ from contextlib import contextmanager
 from psycopg2 import connect, DatabaseError
 
 config = {
-    'dbname': 'postgres',
-    'user': 'postgres',
-    'password': 'password12345',
-    'host': 'localhost',
-    'port': '5432'
+    "dbname": "postgres",
+    "user": "postgres",
+    "password": "password12345",
+    "host": "localhost",
+    "port": "5432",
 }
 
 username = config.get("user", "user")

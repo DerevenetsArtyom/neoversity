@@ -50,9 +50,7 @@ def update_status(cursor):
         """
     task_id = input("Specify the task ID for the status update: ")
     task_id = int(task_id)
-    new_status = input(
-        "Provide a new status of the task ('new', 'in progress', 'completed'): "
-    )
+    new_status = input("Provide a new status of the task ('new', 'in progress', 'completed'): ")
     cursor.execute(sql, (new_status, task_id))
     return "Task completed"
 
