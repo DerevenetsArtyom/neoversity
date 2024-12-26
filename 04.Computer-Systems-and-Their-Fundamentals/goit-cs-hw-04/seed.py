@@ -15,7 +15,7 @@ def main(num_files: int = FILES, text_length: int = LENGTH, directory: str = DIR
     if not os.path.exists(directory):
         os.makedirs(directory)
 
-    for i in range(1, num_files+1):
+    for i in range(1, num_files + 1):
         file_path = os.path.join(directory, f"file{i}.txt")
         with open(file_path, "w", encoding="UTF-8") as fd:
             fd.write(fake.text(max_nb_chars=text_length))
