@@ -1,0 +1,26 @@
+services:
+  web_app:
+    build: .
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mongodb
+    volumes:
+      - .:/web_app
+    env_file:
+      - .env
+
+  mongodb:
+    image: mongo
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: $DB_USER
+      MONGO_INITDB_ROOT_PASSWORD: $DB_PASS
+      MONGO_INITDB_DATABASE: $DB_NAME
+    volumes:
+#      - ./storage:/data/db
+      - mongo_data:/data/db
+
+volumes:
+  mongo_data:
