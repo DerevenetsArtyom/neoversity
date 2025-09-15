@@ -36,7 +36,7 @@ a. the original Kafka topic,
 
 b. the database.
 
-![Aggregated results](/readme_img/aggregated_results.png)
+![Aggregated results](./readme_img/aggregated_results.png)
 
 ### Part 2. Building an End-to-End Batch Data Lake
 
