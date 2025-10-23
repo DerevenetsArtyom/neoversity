@@ -7,9 +7,7 @@ from functools import lru_cache
 
 N = 100_000  # Розмір масиву
 Q = 50_000  # Кількість запитів
-N = 100_000  # array size
-Q = 50_000  # number queries
-K = 1000  # cache size
+K = 1000  # Розмір кешу
 
 
 class LRUCache:
